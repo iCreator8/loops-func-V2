@@ -6,8 +6,29 @@
 
 export function getAllWithdrawals(array) {
   // Your code goes here...
+let totalWithdrawals = [];
 
+
+  for (let i = 0; i < array.length; i++) {
+    let account = array[i];
+    
+    if (account.withdrawals && account.withdrawals.length > 0) {
+      // Sum all withdrawals for this account
+      let sum = 0;
+      for (let j = 0; j < account.withdrawals.length; j++) {
+        sum += account.withdrawals[j];
+      }
+      totalWithdrawals.push(sum);
+    } else {
+      // No withdrawals, add 0
+      totalWithdrawals.push(0);
+    }
+  }
+
+  return totalWithdrawals;
 }
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
