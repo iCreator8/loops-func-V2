@@ -7,7 +7,31 @@
 
 export function separateNamesWithAFromRest(array) {
   // Your code goes here...
+ let namesWithA = [];
+  let namesWithoutA = [];
 
+  // Outer loop to iterate through each name
+  for (let i = 0; i < array.length; i++) {
+    let name = array[i];
+    let containsA = false; // Flag to check if the name contains 'a'
+
+    // Inner loop to check each character in the name
+    for (let j = 0; j < name.length; j++) {
+      if (name[j] === 'a' || name[j] === 'A') { // Check for 'a' or 'A'
+        containsA = true;
+        break; // No need to check further if 'a' is found
+      }
+    }
+
+    // Add name to the respective array based on the flag
+    if (containsA) {
+      namesWithA.push(name);
+    } else {
+      namesWithoutA.push(name);
+    }
+  }
+
+  return [namesWithA, namesWithoutA];
 }
 
 
